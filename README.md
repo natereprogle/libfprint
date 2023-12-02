@@ -1,5 +1,29 @@
-libfprint
-=========
+# READ ME FIRST
+
+This is a CLONE of a fork of an MR I found for the ElanTech 04f3:0c00 fingerprint driver, which exists on my HP Pavilion x360. I DID NOT WRITE THIS, I don't even know C. I barely could install it. But, I'm uploading this repo to my GitHub as an archived, read-only repo for anyone in the future who may want to use this.
+
+There is an open merge request for this device on the official libfprint repo which has been updated further than this repo, but I could not get it working on my laptop. It would recognize the device, but would refuse to interface with it. [The MR is here](https://gitlab.freedesktop.org/libfprint/libfprint/-/merge_requests/330)
+
+The install instructions for this are:
+
+```bash
+sudo apt install meson ninja-build libgusb-dev libgirepository1.0-dev libnss3-dev libgudev-1.0-dev gtk-doc-tools valgrind
+sudo ldconfig
+git clone https://gitlab.freedesktop.org/geodic/libfprint.git
+cd libfprint/
+git checkout elanmoc2
+git pull
+meson build
+cd build
+ninja
+sudo ninja install
+```
+
+Followed by a reboot. When you reboot, you may as well reset the fingerprint reader in the BIOS since that'll be necessary, as well as install libpam-fprintd. Note that you can't use the fingerprint scanner with Windows Hello after using it in Ubuntu unless you reset it again.
+
+# **Original readme below**
+
+# libfprint
 
 libfprint is part of the fprint project:
 https://fprint.freedesktop.org/
