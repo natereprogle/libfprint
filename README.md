@@ -11,7 +11,6 @@ sudo apt install meson ninja-build libgusb-dev libgirepository1.0-dev libnss3-de
 sudo ldconfig
 git clone https://gitlab.freedesktop.org/geodic/libfprint.git
 cd libfprint/
-git checkout elanmoc2
 git pull
 meson build
 cd build
